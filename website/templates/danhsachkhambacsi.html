@@ -71,9 +71,9 @@
                         dropdown-menu dropdown-menu-right dropdown-menu-arrow
                       "
                     >
-<!--                      <a class="dropdown-item" href=""-->
-<!--                         onclick="return confirm('Thêm bệnh nhân này ?')">Tạo phiếu khám bệnh mới</a>-->
-                      <a class="dropdown-item" href="/bacsi/themdanhsachkhambacsi?cmnd={{ p.cmnd }}"
+                     <!-- <a class="dropdown-item" href="/bacsi/themdanhsachkhambacsi?cmnd={{ p.cmnd }}" -->
+                       <!-- onclick="return confirm('Thêm bệnh nhân này ?')">Tạo phiếu khám bệnh mới</a> -->
+                      <a class="dropdown-item" href="{{url_for('bacsi.bacsi_thembenhnhan', cmnd = p.cmnd)}}"
                          onclick="return confirm('Thêm bệnh nhân này ?')">Tạo phiếu khám bệnh mới</a>
                       <a class="dropdown-item" href="/bacsi/xoadanhsachkhambacsi/{{p.mads}}"
                          onclick="return confirm('Xóa bệnh nhân này ?')">Xoá</a>
