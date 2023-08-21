@@ -73,11 +73,13 @@ def bacsi_thembenhnhan():
             db.session.commit()
             print("Them thanh cong")
             return redirect(url_for('bacsi.bacsi_phieuKhamBenh',cmnd = cmnd))
+            #return redirect('/bacsi/phieuKhamBenh?cmnd=cmnd')
         except:
             print("Them that bai")
     else:
         benhnhanmoi.trangthai = 1
         db.session.commit()
+        return redirect(url_for('bacsi.bacsi_phieuKhamBenh',cmnd = cmnd))
         
     return render_template('phieuKhamBenh.html')
 
@@ -128,11 +130,13 @@ def bacsi_phieuKhamBenh():
     try:
         db.session.add(phieukham)
         db.commit()
-        return redirect(url_for('bacsi.bacsi_phieuKhamBenh', mapk = phieukham.mapk))
+        mapk = phieukham.mapk
+        print(mapk)
+        return redirect(url_for('bacsi.bacsi_phieuKhamBenh', mapk = mapk))
     except:
         print("them that bai")
 
-    return render_template('phieuKhamBenh.html', mabn = benhnhan.mabn , ngaykham = ngaykham, mapk = phieukham.mapk)
+    return render_template('phieuKhamBenh.html', mabn = benhnhan.mabn , ngaykham = ngaykham)
 
 @bacsi.route('/xuathoadon')
 def bacsi_xuathoadon():
